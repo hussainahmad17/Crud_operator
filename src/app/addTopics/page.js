@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+import { url } from '../components/TopicList';
 const AddTopics = () => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -13,7 +13,7 @@ const AddTopics = () => {
       return
     }
     try {
-      const res = await fetch("http://localhost:3000/api/topics", {
+      const res = await fetch(`${url}/api/topics`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

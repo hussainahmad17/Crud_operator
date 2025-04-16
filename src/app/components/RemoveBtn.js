@@ -2,11 +2,12 @@
 import React from 'react'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import {useRouter}from 'next/navigation';
+import { url } from './TopicList';
 const RemoveBtn = ({id}) => {
     const router = useRouter()
     const handleDelete = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+            const res = await fetch(`${url}/api/topics?id=${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

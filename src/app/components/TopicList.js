@@ -4,10 +4,13 @@ import { FiEdit } from "react-icons/fi";
 import Link from 'next/link';
 import RemoveBtn from './RemoveBtn';
 export const dynamic = "force-dynamic";
+export const url = process.env.NEXT_PUBLIC_API_URL
+
+
 
 const getData = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/topics`, { cache: "no-store" })
+    const res = await fetch(`${url}/api/topics`, { cache: "no-store" })
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
     }
@@ -23,8 +26,6 @@ const TopicList = async () => {
 
   const {topic} = await getData()
 
-  // console.log(topic);
-  
   return (
     <>
       {

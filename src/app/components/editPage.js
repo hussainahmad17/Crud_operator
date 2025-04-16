@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+import { url } from './TopicList';
 const EditPage = ({ id, title, description }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
@@ -10,7 +10,7 @@ const EditPage = ({ id, title, description }) => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // corrected error here
     try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+      const res = await fetch(`${url}/api/topics/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
